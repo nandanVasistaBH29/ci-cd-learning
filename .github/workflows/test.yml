@@ -10,6 +10,8 @@ jobs:
           node-version: "18.8.0"
       - run: tree #this is bash command
       - run: node -v
+      - name: install node modules
+        run: yarn
       - name: Build the project in the cloud mostly azure
         run: yarn build
       - name: setup finish #name is used to name the run cmd
