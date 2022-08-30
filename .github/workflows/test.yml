@@ -14,10 +14,13 @@ jobs:
         run: yarn
       - name: Build the project in the cloud mostly azure
         run: yarn build
+      - name: Sets the vercel env
+        run: |
+          cd build
+          mkdir .vercel
+          touch project.json
+          echo `{"projectId":"eHQMVHNpQlQEaNdTuqB9bl9F","orgId":"prj_9llpq68HFHZgjhVtwXWoFVaXqMRV"}` > project.json
       - name: Deploying the project on vercel
-        env:
-          VERCEL_ORG_ID: eHQMVHNpQlQEaNdTuqB9bl9F
-          VERCEL_PROJECT_ID: prj_9llpq68HFHZgjhVtwXWoFVaXqMRV
         run: yarn deploy #see deploy cmd in package.json
       - name: setup finish #name is used to name the run cmd
         run: echo "aythu macha"
