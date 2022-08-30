@@ -1,8 +1,8 @@
 name: My first github action
 on: [push]
 jobs:
-  print-hello-world:
-    runs-on: ubuntu-latest
+  build-app:
+    runs-on: ubuntu-22.04
     steps:
-      - run: echo "hello world!!"
-      - run: echo "this is step number 2"
+      - uses: actions/checkout@v2 #we are USEing this action provided by github which clones the repo
+      - run: tree #this is bash command
